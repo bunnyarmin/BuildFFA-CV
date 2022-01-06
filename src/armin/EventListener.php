@@ -35,6 +35,7 @@ class EventListener implements Listener
     public function onPlayerLogin(PlayerLoginEvent $event): void
     {
         $player = $event->getPlayer();
+        
         if (!file_exists(BuildFFA::PLAYER_FILE . $player->getName() . ".json")) {
             $pdata = new Config(BuildFFA::PLAYER_FILE . $player->getName() . ".json", Config::JSON);
             $pdata->setNested("inventory.sandstone", 0);
